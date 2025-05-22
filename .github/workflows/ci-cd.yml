@@ -1,0 +1,54 @@
+# .github/workflows/ci-cd.yml
+name: 🚀 CI/CD Pipeline
+
+# When should this run?
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Step 1: Get the code
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+    
+    # Step 2: Setup Node.js for running tests
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    # Step 3: Run tests
+    - name: 🧪 Run tests
+      run: |
+        echo "🧪 Running tests..."
+        node test.js
+        echo "✅ All tests passed!"
+    
+    # Step 4: Build (simulate)
+    - name: 🔨 Build application
+      run: |
+        echo "🔨 Building application..."
+        echo "📦 Creating build artifacts..."
+        mkdir -p build
+        cp index.html build/
+        echo "✅ Build complete!"
+    
+    # Step 5: Deploy to GitHub Pages (FREE hosting!)
+    - name: 🚀 Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+        
+    # Step 6: Success message
+    - name: 🎉 Success
+      run: |
+        echo "🎉 Pipeline completed successfully!"
+        echo "🌐 Your app is live at: https://${{ github.repository_owner }}.github.io/my-cicd-app"
