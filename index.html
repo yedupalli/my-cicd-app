@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Awesome App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h1 { font-size: 3em; margin-bottom: 20px; }
+        p { font-size: 1.2em; }
+        .version { 
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 My CI/CD App</h1>
+        <p>This app was deployed automatically using CI/CD!</p>
+        <div class="version">Version: 1.0.1</div>
+        <p><strong>🌐 Live URL:</strong> Will appear after deployment!</p>
+        <p>Every time I push code to Git, Jenkins automatically:</p>
+        <ul style="text-align: left; display: inline-block;">
+            <li>✅ Tests my code</li>
+            <li>🔨 Builds the app</li>
+            <li>🚀 Deploys it automatically</li>
+        </ul>
+    </div>
+
+    <script>
+        // Simple test function
+        function testApp() {
+            return "App is working!";
+        }
+        
+        // Show that the app loaded successfully
+        console.log("✅ App loaded successfully!");
+        console.log(testApp());
+    </script>
+</body>
+</html>
